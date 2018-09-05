@@ -1,0 +1,17 @@
+-why doing 'p params' on the app doesn't do anything
+-does erb :play the same to redirect '/play' ?
+
+-This user story:
+'As a marketeer
+So that I can see my name in lights
+I would like to register my name before playing an online game'
+...means: to submit a name?
+
+-feature tests are not working as supposed
+
+05.09.18
+-The server is the app.rb?
+-'erb :play' is saying: go to the 'play' file and allow to user
+embeded ruby. Is that right?
+-What exactly is params
+-Why we redefined params[:player_name]? Why we just don't use it.
