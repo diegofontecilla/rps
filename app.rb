@@ -19,7 +19,8 @@ class RockPaperScissors < Sinatra::Base
   end
 
   post '/winner' do
-    session[:player_option] = params[:player_option]
+    @player_name = $player_name.name
+    @player_option = params[:player_option]
     erb :winner
   end
 end
