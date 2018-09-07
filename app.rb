@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/player'
+require './lib/the_computer'
 
 class RockPaperScissors < Sinatra::Base
   enable :sessions
@@ -19,8 +20,15 @@ class RockPaperScissors < Sinatra::Base
   end
 
   post '/winner' do
+    $player_option = params[:player_option]
+    $computer_option = TheComputer.new
+    redirect '/winner'
+  end
+
+  get '/winner' do
+    @player_option = $player_option
     @player_name = $player_name.name
-    @player_option = params[:player_option]
+    @computer_option = $computer_option.play
     erb :winner
   end
 end
