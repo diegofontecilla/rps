@@ -15,3 +15,8 @@ I would like to register my name before playing an online game'
 embeded ruby. Is that right?
 -What exactly is params
 -Why we redefined params[:player_name]? Why we just don't use it.
+
+10.09.18
+-how to test sample method om TheComputer?
+-#computer_choice suit tests: how can I test behaviour without the
+actual return? (Michel advise)
