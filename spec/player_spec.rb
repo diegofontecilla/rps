@@ -13,7 +13,7 @@ describe Player do
   context '#option' do
     it 'returns the player option' do
       fake_option = double('fake_option')
-      expect(player.option(fake_option)).to eq(fake_option)
+      expect(player.play(fake_option)).to eq(fake_option)
     end
   end
 end

@@ -6,5 +6,6 @@ class TheComputer
 
   def play
     @options[rand(0..2)]
+    # @options.sample
   end
 end
