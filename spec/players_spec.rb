@@ -14,5 +14,10 @@ describe Players do
       players = Players.new('diego')
       expect(players.player_2).to eq('the computer')
     end
+
+    it 'returns the name given' do
+      players = Players.new('diego', 'romeo')
+      expect(players.player_2).to eq('romeo')
+    end
   end
 end
