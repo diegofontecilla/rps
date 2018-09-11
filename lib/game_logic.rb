@@ -3,7 +3,8 @@ require_relative 'the_computer'
 
 class GameLogic
 
-  def initialize(players = Players.new(player_1), the_computer = TheComputer.new)
+  def initialize(players, the_computer)
+    # @computer_option = nil
     @players = players
     @the_computer = the_computer
     @choice_hash = {
@@ -14,9 +15,13 @@ class GameLogic
   end
 
   def get_winner(player_option)
-    computer_option = @the_computer.computer_choice
-    return tie if player_option == computer_option
-    @choice_hash[player_option].include?(computer_option) ? player_1_won : player_2_won
+    @computer_option = @the_computer.computer_choice
+    return tie if player_option == @computer_option
+    @choice_hash[player_option].include?(@computer_option) ? player_1_won : player_2_won
+  end
+
+  def computer_option
+    @computer_option
   end
 
   private

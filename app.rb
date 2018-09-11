@@ -29,9 +29,10 @@ class RockPaperScissors < Sinatra::Base
   get '/winner' do
     @player_option = $player_option
     @player_1_name = $player_name.player_1
-    # @computer_option = $computer_option.computer_choice
-    winner = GameLogic.new(@player_1_name)
-    @the_winner = winner.get_winner(@player_option)
+    the_computer  = TheComputer.new
+    game_logic = GameLogic.new($player_name, the_computer)
+    @the_winner = game_logic.get_winner(@player_option)
+    @computer_option = game_logic.computer_option
     erb :winner
   end
 end

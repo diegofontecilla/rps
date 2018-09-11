@@ -1,6 +1,6 @@
 class Players
 
-  def initialize(player_1 = TheComputer.new, player_2 = TheComputer.new)
+  def initialize(player_1, player_2 = TheComputer.new )
     @player_1 = player_1
     @player_2 = player_2
   end
