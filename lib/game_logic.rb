@@ -19,11 +19,11 @@ class GameLogic
     @choice_hash[player_option].include?(@computer_option) ? player_1_won : player_2_won
   end
 
-  private
-
   def computer_option
     @computer_option
   end
+
+  private
 
   def player_1_won
     "#{@players.player_1} is the winner!"
