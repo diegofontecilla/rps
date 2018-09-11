@@ -22,7 +22,6 @@ class RockPaperScissors < Sinatra::Base
 
   post '/winner' do
     $player_option = params[:player_option]
-    # $computer_option = TheComputer.new
     redirect '/winner'
   end
 
