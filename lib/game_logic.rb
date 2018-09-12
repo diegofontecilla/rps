@@ -6,18 +6,17 @@ class GameLogic
   def initialize(players, the_computer)
     @players = players
     @the_computer = the_computer
-    @choice_hash = {
+    @choices = {
       'rock' => ['scissors'],
       'paper' => ['rock'],
       'scissors' => ['paper']
       }
   end
 
-  def get_winner(player)
+  def get_winner(player_option)
     @computer_option = @the_computer.computer_choice
-    player = player.player_option
-    return tie if player == @computer_option
-    @choice_hash[player].include?(@computer_option) ? player_1_won : player_2_won
+    return tie if player_option == @computer_option
+    @choices[player_option].include?(@computer_option) ? player_1_won : player_2_won
   end
 
   def computer_option

@@ -3,8 +3,6 @@ require './lib/players'
 require './lib/the_computer'
 require './lib/game_logic'
 require './lib/game'
-require './lib/the_option'
-require './lib/game_two'
 
 class RockPaperScissors < Sinatra::Base
   enable :sessions
@@ -25,13 +23,12 @@ class RockPaperScissors < Sinatra::Base
   end
 
   post '/winner' do
-    the_option = TheOption.new(params[:player_option])
-    @player_1_option = Game.instance_2(the_option)
+    @player_1_option = Game.store_option(params[:player_option])
     redirect '/winner'
   end
 
   get '/winner' do
-    @player_1_option = Game.player_option
+    @player_1_option = Game.get_option
     @game = Game.instance
     the_computer  = TheComputer.new
     game_logic = GameLogic.new(@game, the_computer)
