@@ -12,14 +12,13 @@ class RockPaperScissors < Sinatra::Base
   end
 
   post '/names' do
-    player_name = Players.new(params[:player_name])
-    @game = Game.create
+    players = Players.new(params[:player_name])
+    @game = Game.create(players)
     redirect '/play'
   end
 
   get '/play' do
     @game = Game.instance
-    # @player_name = $player_name.player_1
     erb :play
   end
 
@@ -30,9 +29,9 @@ class RockPaperScissors < Sinatra::Base
 
   get '/winner' do
     @player_option = $player_option
-    @player_1_name = $player_name.player_1
+    @game = Game.instance
     the_computer  = TheComputer.new
-    game_logic = GameLogic.new($player_name, the_computer)
+    game_logic = GameLogic.new(@game, the_computer)
     @the_winner = game_logic.get_winner(@player_option)
     @computer_option = game_logic.computer_option
     erb :winner

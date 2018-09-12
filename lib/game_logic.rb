@@ -26,11 +26,11 @@ class GameLogic
   private
 
   def player_1_won
-    "#{@players.player_1} is the winner!"
+    "#{@players.get_players.player_1_name} is the winner!"
   end
 
   def player_2_won
-    "#{@players.player_2} is the winner!"
+    "#{@players.get_players.player_2_name} is the winner!"
   end
 
   def tie

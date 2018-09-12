@@ -5,11 +5,11 @@ class Players
     @player_2 = player_2
   end
 
-  def player_1
+  def player_1_name
     player_name(name = @player_1)
   end
 
-  def player_2
+  def player_2_name
     player_name(name = @player_2)
   end
 

@@ -1,13 +1,13 @@
 class Game
 
-  attr_reader :player_1
+  attr_reader :get_players
 
-  def initialize(player_1)
-    @player_1 = player_1
+  def initialize(players)
+    @get_players = players
   end
 
-  def self.create
-    @game = Game.new(@player_1)
+  def self.create(players)
+    @game = Game.new(players)
   end
 
   def self.instance
