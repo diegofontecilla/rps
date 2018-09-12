@@ -13,10 +13,11 @@ class GameLogic
       }
   end
 
-  def get_winner(player_option)
+  def get_winner(player)
     @computer_option = @the_computer.computer_choice
-    return tie if player_option == @computer_option
-    @choice_hash[player_option].include?(@computer_option) ? player_1_won : player_2_won
+    option = player.the_option.player_option
+    return tie if option == @computer_option
+    @choice_hash[option].include?(@computer_option) ? player_1_won : player_2_won
   end
 
   def computer_option
