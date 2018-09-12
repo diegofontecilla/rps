@@ -13,4 +13,12 @@ class Game
   def self.instance
     @game
   end
+
+  def self.instance_2(player_option)
+    @player_option = player_option
+  end
+
+  def self.player_option
+    @player_option
+  end
 end

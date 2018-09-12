@@ -26,16 +26,13 @@ class RockPaperScissors < Sinatra::Base
 
   post '/winner' do
     the_option = TheOption.new(params[:player_option])
-    @player_1_option = GameTwo.create(the_option)
+    @player_1_option = Game.instance_2(the_option)
     redirect '/winner'
   end
 
   get '/winner' do
-    @player_1_option = GameTwo.instance
+    @player_1_option = Game.player_option
     @game = Game.instance
-    p 'd'
-    p @player_1_option
-    p @game
     the_computer  = TheComputer.new
     game_logic = GameLogic.new(@game, the_computer)
     @the_winner = game_logic.get_winner(@player_1_option)
