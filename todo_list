@@ -3,3 +3,9 @@ human v/s computer
 human v/s human
 computer v/s computer
 make 2 different names in case the computer plays again it self
+
+11.09.18
+-get rid of the global variables
+-make it work for two players
+-expand it to rock, paper, scissors, spock, lizard
+-fix the tests and think in some more if necessary 

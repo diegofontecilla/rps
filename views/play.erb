@@ -1,4 +1,4 @@
-<h2>Welcome <%= @player_name %>!</h2>
+<h2>Welcome <%= @game.get_players.player_1_name %>!</h2>
 <h4>Choose one of the options bellow and click submit:</h4>
 <form action="/winner" method="post">
   <label for="rock">Rock</label>
