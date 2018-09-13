@@ -1,11 +1,23 @@
-<h2>Welcome <%= @game.get_players.player_1_name %>!</h2>
+<h2> <%= @game.get_players.player_1_name %>
+<% if @game.get_players.player_2_name == "the computer" %>
+v/s the computer
+<% else %>
+v/s player 2 name
+<% end %>
+</h2>
 <h4>Choose one of the options bellow and click submit:</h4>
 <form action="/winner" method="post">
   <label for="rock">Rock</label>
-  <input type="radio" name="player_option" id=rock value="rock"><br>
+  <input type="radio" name="player_1_option" id=rock value="rock"><br>
   <label for="paper">Paper</label>
-  <input type="radio" name="player_option" id=paper value="paper"><br>
+  <input type="radio" name="player_1_option" id=paper value="paper"><br>
   <label for="scissors">Scissors</label>
-  <input type="radio" name="player_option" id=scissors value="scissors"><br>
+  <input type="radio" name="player_1_option" id=scissors value="scissors"><br>
+  <label for="rock">Rock</label>
+  <input type="radio" name="player_2_option" id=rock value="rock"><br>
+  <label for="paper">Paper</label>
+  <input type="radio" name="player_2_option" id=paper value="paper"><br>
+  <label for="scissors">Scissors</label>
+  <input type="radio" name="player_2_option" id=scissors value="scissors"><br>
   <input type="submit" value="Submit">
 </form>

@@ -1,6 +1,6 @@
 class Players
 
-  def initialize(player_1, player_2 = TheComputer.new )
+  def initialize(player_1, player_2)
     @player_1 = player_1
     @player_2 = player_2
   end
@@ -16,7 +16,7 @@ class Players
    private
 
    def player_name(name)
-     return name if name.is_a?(String)
+     return name if name != ""
      'the computer'
    end
 end

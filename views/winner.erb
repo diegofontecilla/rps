@@ -1,2 +1,9 @@
-<h4><%= @game.get_players.player_1_name %> chose <%= @player_1_option %> and the computer chose <%= @computer_option %> </h4>
+<h4><%= @game.get_players.player_1_name %> chose <%= @player_1_option %> and
+<%= @game.get_players.player_2_name %> chose
+<% if @player_2_option == nil %>
+  computer_choice
+<% else %>
+  player_2_option
+<% end %>
+</h4>
 <h4><%= @the_winner %>!</h4>
