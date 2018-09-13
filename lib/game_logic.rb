@@ -1,10 +1,11 @@
 require_relative 'players'
 require_relative 'the_computer'
+require_relative 'game'
 
 class GameLogic
 
-  def initialize(players, the_computer)
-    @players = players
+  def initialize(game, the_computer)
+    @game = game
     @the_computer = the_computer
     @choices = {
       'rock' => ['scissors'],
@@ -26,11 +27,12 @@ class GameLogic
   private
 
   def player_1_won
-    "#{@players.get_players.player_1_name} is the winner!"
+    "#{@game.get_players.player_1_name} is the winner!"
   end
 
   def player_2_won
-    "#{@players.get_players.player_2_name} is the winner!"
+    p @game.get_players
+    "#{@game.get_players.player_2_name} is the winner!"
   end
 
   def tie

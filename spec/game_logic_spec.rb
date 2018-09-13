@@ -2,9 +2,13 @@ require 'game_logic'
 
 describe GameLogic do
 
+  # let(:fake_game) { double(:game) }
   let(:fake_computer) { double(:the_computer) }
-  let(:fake_players) { double(:players, :player_1 => 'diego', :player_2 => 'the computer') }
-  subject(:game_logic) { GameLogic.new(fake_players, fake_computer) }
+  let(:fake_players) { double(:players, :player_1_name => 'diego', :player_2_name => 'the computer') }
+  let(:fake_game) { double(:game, :get_players => fake_players) }
+
+  # allow(fake_game).to receive(:get_players).and_return(fake_players)
+  subject(:game_logic) { GameLogic.new(fake_game, fake_computer) }
 
   context '#get_winner' do
 

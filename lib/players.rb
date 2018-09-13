@@ -6,11 +6,11 @@ class Players
   end
 
   def player_1_name
-    player_name(name = @player_1)
+    player_name(@player_1)
   end
 
   def player_2_name
-    player_name(name = @player_2)
+    player_name(@player_2)
   end
 
    private
