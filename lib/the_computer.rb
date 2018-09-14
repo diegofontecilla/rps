@@ -1,6 +1,6 @@
 class TheComputer
 
   def computer_choice
-    ["rock", "paper", "scissors"][rand(0..2)]
+    ["rock", "paper", "scissors", "spock", "lizard"][rand(0..4)]
   end
 end

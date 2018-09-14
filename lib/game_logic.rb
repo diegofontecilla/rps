@@ -8,9 +8,11 @@ class GameLogic
     @game = game
     @the_computer = the_computer
     @choices = {
-      'rock' => ['scissors'],
-      'paper' => ['rock'],
-      'scissors' => ['paper']
+      'rock' => ['scissors', 'lizard'],
+      'paper' => ['rock', 'spock'],
+      'scissors' => ['paper', 'lizard'],
+      'spock' => ['scissors', 'rock'],
+      'lizard' => ['spock', 'paper']
       }
   end
 

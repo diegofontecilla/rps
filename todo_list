@@ -11,3 +11,6 @@ make 2 different names in case the computer plays again it self
 
 13.09.18
 -fix if statement on play.erb
+
+14.09.18
+-refurbish get_winner on GameLogic class
