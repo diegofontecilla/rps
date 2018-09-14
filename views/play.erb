@@ -1,11 +1,7 @@
 <h2> <%= @game.get_players.player_1_name %>
 <% if @game.get_players.player_2_name == "the computer" %>
 v/s the computer
-<% else %>
-v/s <%= @game.get_players.player_2_name %>
-<% end %>
-</h2>
-<h4>Choose one of the options bellow and click submit:</h4>
+<h4> <%= @game.get_players.player_1_name %>, choose one of the options bellow and click submit:</h4>
 <form action="/winner" method="post">
   <label for="rock">Rock</label>
   <input type="radio" name="player_1_option" id=rock value="rock"><br>
@@ -13,11 +9,20 @@ v/s <%= @game.get_players.player_2_name %>
   <input type="radio" name="player_1_option" id=paper value="paper"><br>
   <label for="scissors">Scissors</label>
   <input type="radio" name="player_1_option" id=scissors value="scissors"><br>
-  <label for="rock">Rock</label>
-  <input type="radio" name="player_2_option" id=rock value="rock"><br>
-  <label for="paper">Paper</label>
-  <input type="radio" name="player_2_option" id=paper value="paper"><br>
-  <label for="scissors">Scissors</label>
-  <input type="radio" name="player_2_option" id=scissors value="scissors"><br>
   <input type="submit" value="Submit">
 </form>
+<% else %>
+v/s <%= @game.get_players.player_2_name %>
+<h4> <%= @game.get_players.player_2_name %>, please cover your eyes.</h4>
+<h4> <%= @game.get_players.player_1_name %>, choose one of the options bellow and click submit:</h4>
+<form action="/player_1_option" method="post">
+  <label for="rock">Rock</label>
+  <input type="radio" name="player_1_option" id=rock value="rock"><br>
+  <label for="paper">Paper</label>
+  <input type="radio" name="player_1_option" id=paper value="paper"><br>
+  <label for="scissors">Scissors</label>
+  <input type="radio" name="player_1_option" id=scissors value="scissors"><br>
+  <input type="submit" value="Submit">
+</form>
+<% end %>
+</h2>

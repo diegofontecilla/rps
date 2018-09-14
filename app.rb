@@ -19,21 +19,33 @@ class RockPaperScissors < Sinatra::Base
 
   get '/play' do
     @game = Game.instance
-    p 'f'
-    p @game.get_players.player_2_name
     erb :play
   end
 
-  post '/winner' do
+  post '/player_1_option' do
     @player_1_option = Game.store_player_1_option(params[:player_1_option])
+    redirect '/player_2_option'
+  end
+
+  get '/player_2_option' do
+    @game = Game.instance
+    erb :player_2_option
+  end
+
+  post '/player_2_option' do
     @player_2_option = Game.store_player_2_option(params[:player_2_option])
     redirect '/winner'
   end
 
+  post '/winner' do
+    @player_1_option = Game.store_player_1_option(params[:player_1_option])
+    redirect '/winner'
+  end
+
   get '/winner' do
+    @game = Game.instance
     @player_1_option = Game.get_player_1_option
     @player_2_option = Game.get_player_2_option
-    @game = Game.instance
     the_computer  = TheComputer.new
     game_logic = GameLogic.new(@game, the_computer)
     @the_winner = game_logic.get_winner(@player_1_option, @player_2_option)

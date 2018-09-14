@@ -1,0 +1,13 @@
+<h2>
+  <h4> <%= @game.get_players.player_1_name %>, please cover your eyes.</h4>
+  <h4> <%= @game.get_players.player_2_name %>, choose one of the options bellow and click submit:</h4>
+  <form action="/player_2_option" method="post">
+    <label for="rock">Rock</label>
+    <input type="radio" name="player_2_option" id=rock value="rock"><br>
+    <label for="paper">Paper</label>
+    <input type="radio" name="player_2_option" id=paper value="paper"><br>
+    <label for="scissors">Scissors</label>
+    <input type="radio" name="player_2_option" id=scissors value="scissors"><br>
+    <input type="submit" value="Submit">
+  </form>
+</h2>
