@@ -17,6 +17,6 @@ embeded ruby. Is that right?
 -Why we redefined params[:player_name]? Why we just don't use it.
 
 10.09.18
--how to test sample method om TheComputer?
+-how to test sample method on TheComputer?
 -#computer_choice suit tests: how can I test behaviour without the
 actual return? (Michel advise)

@@ -1,16 +1,27 @@
 -Think in ways of doing the game interchangeable for:
 human v/s computer
+DONE!
 human v/s human
+DONE!
 computer v/s computer
 make 2 different names in case the computer plays again it self
 
 11.09.18
 -make it work for two players
+DONE!
 -expand it to rock, paper, scissors, spock, lizard
+DONE!
 -fix the tests and think in some more if necessary
+DONE!
 
 13.09.18
 -fix if statement on play.erb
+DONE!
 
 14.09.18
 -refurbish get_winner on GameLogic class
+DONE!
+-think about how to put Game class inside GameLogic class
+-it should be a human class and a computer class, where the choices are maiden.
+then the play would continuous just with the two players options, it doesn't matter
+if they are human or machine options.
