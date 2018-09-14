@@ -2,7 +2,7 @@
 <% if @game.get_players.player_2_name == "the computer" %>
 v/s the computer
 <% else %>
-v/s player 2 name
+v/s <%= @game.get_players.player_2_name %>
 <% end %>
 </h2>
 <h4>Choose one of the options bellow and click submit:</h4>
