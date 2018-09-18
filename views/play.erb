@@ -1,7 +1,8 @@
-<h2> <%= @game.get_players.player_1_name %>
-<% if @game.get_players.player_2_name == "the computer" %>
-v/s the computer
-<h4> <%= @game.get_players.player_1_name %>, choose one of the options bellow and click submit:</h4>
+<% if @game_session.player_1.name == "the computer" && @game_session.player_2.name == "the computer" %>
+  <h2>Come on, read the instructions!!!</h2>
+<% elsif @game_session.player_2.name == "the computer" %>
+<h2> <%= @game_session.player_1.name %> v/s <%= @game_session.player_2.name %>
+<h4> <%= @game_session.player_1.name %>, choose one of the options bellow and click submit:</h4>
 <form action="/winner" method="post">
   <label for="rock">Rock</label>
   <input type="radio" name="player_1_option" id=rock value="rock"><br>
@@ -15,10 +16,26 @@ v/s the computer
   <input type="radio" name="player_1_option" id=lizard value="lizard"><br>
   <input type="submit" value="Submit">
 </form>
+<% elsif @game_session.player_1.name == "the computer" %>
+<h2> <%= @game_session.player_1.name %> v/s <%= @game_session.player_2.name %>
+<h4> <%= @game_session.player_2.name %>, choose one of the options bellow and click submit:</h4>
+<form action="/winner" method="post">
+  <label for="rock">Rock</label>
+  <input type="radio" name="player_2_option" id=rock value="rock"><br>
+  <label for="paper">Paper</label>
+  <input type="radio" name="player_2_option" id=paper value="paper"><br>
+  <label for="scissors">Scissors</label>
+  <input type="radio" name="player_2_option" id=scissors value="scissors"><br>
+  <label for="spock">Spock</label>
+  <input type="radio" name="player_2_option" id=spock value="spock"><br>
+  <label for="lizard">Lizard</label>
+  <input type="radio" name="player_2_option" id=lizard value="lizard"><br>
+  <input type="submit" value="Submit">
+</form>
 <% else %>
-v/s <%= @game.get_players.player_2_name %>
-<h4> <%= @game.get_players.player_2_name %>, please cover your eyes.</h4>
-<h4> <%= @game.get_players.player_1_name %>, choose one of the options bellow and click submit:</h4>
+<h2> <%= @game_session.player_1.name %> v/s <%= @game_session.player_2.name %>
+<h4> <%= @game_session.player_2.name %>, please cover your eyes.</h4>
+<h4> <%= @game_session.player_1.name %>, choose one of the options bellow and click submit:</h4>
 <form action="/player_1_option" method="post">
   <label for="rock">Rock</label>
   <input type="radio" name="player_1_option" id=rock value="rock"><br>

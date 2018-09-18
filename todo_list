@@ -25,3 +25,38 @@ DONE!
 -it should be a human class and a computer class, where the choices are maiden.
 then the play would continuous just with the two players options, it doesn't matter
 if they are human or machine options.
+
+
+-there will be always two players with names and choices
+
+class Human
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def get_choice
+    gets.chomp!
+  end
+end
+
+class Computer
+  attr_reader :name
+
+  def initialize(name = "The Computer")
+    @name = name
+  end
+
+  def get_choice
+    [1,2,3,4].sample
+  end
+end
+
+def get_player_choice(player)
+  player.get_choice
+end
+
+17.09.18
+-research about object oriented design
+-make tests for game_session class
