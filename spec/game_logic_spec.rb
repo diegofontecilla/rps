@@ -2,25 +2,22 @@ require 'game_logic'
 
 describe GameLogic do
 
-  let(:fake_computer) { double(:the_computer) }
-  let(:fake_players) { double(:players, :player_1_name => 'diego', :player_2_name => 'the computer') }
-  let(:fake_game) { double(:game, :get_players => fake_players) }
-  subject(:game_logic) { GameLogic.new(fake_game, fake_computer) }
+  let(:fake_player_1) { double(:player, :name => 'diego') }
+  let(:fake_player_2) { double(:player, :name => 'the computer') }
+  let(:fake_game_session) { double(:game_session, :player_1 => fake_player_1, :player_2 => fake_player_2) }
+  subject(:game_logic) { GameLogic.new(fake_game_session) }
 
   context '#get_winner' do
 
-    it 'make player wins when choose rock and computer scissors' do
-      allow(fake_computer).to receive(:computer_choice).and_return('scissors')
+    it 'establishes that player 1 wins when choose rock, while player 2 chose scissors' do
       expect(game_logic.get_winner('rock', 'scissors')).to eq('diego is the winner!')
     end
 
-    it 'make player loose when choose scissors and computer rock' do
-      allow(fake_computer).to receive(:computer_choice).and_return('rock')
+    it 'establishes that player 1 looses when choose scissors, while player 2 rock' do
       expect(game_logic.get_winner('scissors', 'rock')).to eq('the computer is the winner!')
     end
 
-    it 'declare a tie when computer and player choose the same' do
-      allow(fake_computer).to receive(:computer_choice).and_return('paper')
+    it 'declares a tie when player 1 and player 2 choose the same' do
       expect(game_logic.get_winner('paper', 'paper')).to eq('this is a TIE!')
     end
   end

@@ -1,55 +1,55 @@
 require 'sinatra/base'
-require './lib/players'
-require './lib/the_computer'
+require './lib/player'
 require './lib/game_logic'
-require './lib/game'
+require './lib/game_session'
 
 class RockPaperScissors < Sinatra::Base
   enable :sessions
+
+  before do
+    @game_session = GameSession.instance
+  end
 
   get '/' do
     erb :index
   end
 
   post '/names' do
-    players = Players.new(params[:player_1_name], params[:player_2_name])
-    @game = Game.create(players)
+    player_1 = Player.new(params[:player_1_name])
+    player_2 = Player.new(params[:player_2_name])
+    @game_session = GameSession.create(player_1, player_2)
     redirect '/play'
   end
 
   get '/play' do
-    @game = Game.instance
     erb :play
   end
 
   post '/player_1_option' do
-    @player_1_option = Game.store_player_1_option(params[:player_1_option])
+    @game_session.player_1.get_choice(params[:player_1_option])
     redirect '/player_2_option'
   end
 
   get '/player_2_option' do
-    @game = Game.instance
     erb :player_2_option
   end
 
   post '/player_2_option' do
-    @player_2_option = Game.store_player_2_option(params[:player_2_option])
+    @game_session.player_2.get_choice(params[:player_2_option])
     redirect '/winner'
   end
 
   post '/winner' do
-    @player_1_option = Game.store_player_1_option(params[:player_1_option])
+    @game_session.player_1.get_choice(params[:player_1_option])
+    @game_session.player_2.get_choice(params[:player_2_option])
     redirect '/winner'
   end
 
   get '/winner' do
-    @game = Game.instance
-    @player_1_option = Game.get_player_1_option
-    @player_2_option = Game.get_player_2_option
-    the_computer  = TheComputer.new
-    game_logic = GameLogic.new(@game, the_computer)
+    game_logic = GameLogic.new(@game_session)
+    @player_1_option = @game_session.player_1.player_option
+    @player_2_option = @game_session.player_2.player_option
     @the_winner = game_logic.get_winner(@player_1_option, @player_2_option)
-    @computer_option = game_logic.computer_option
     erb :winner
   end
 end
